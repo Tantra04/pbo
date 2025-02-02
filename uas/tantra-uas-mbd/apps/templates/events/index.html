@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pemesanan Tiket Konser Musik</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            animation: fadeIn 1s ease-out;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: slideIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1200px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #343a40;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f1f1;
+            color: #555;
+        }
+
+        td img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        td img:hover {
+            transform: scale(1.05);
+        }
+
+        td button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        td button:hover {
+            background-color: #218838;
+        }
+
+        input, select, button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .concert-card {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .concert-card div {
+            flex: 1;
+            min-width: 200px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        .concert-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .concert-card h3 {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        .concert-card p {
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); }
+            100% { transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .concert-card {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .concert-card div {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistem Pemesanan Tiket Konser Musik</h1>
+    </header>
+
+    <section id="daftar-konser">
+        <h2>Daftar Konser Mendatang</h2>
+
+        <div class="concert-card">
+            <div>
+                <img src="https://images.app.goo.gl/G8d6P9LnhiNyt2MF6" alt="Konser MORFEM">
+                <h3>Konser MORFEM</h3>
+                <p><strong>Tanggal:</strong> 12 Februari 2025</p>
+                <p><strong>Lokasi:</strong> politeknik praktisi</p>
+                <p><strong>Harga Tiket:</strong> Rp 500.000</p>
+                <form action="pesan_tiket" method="POST">
+                    <label for="jumlah-tiket">Jumlah Tiket:</label>
+                    <input type="number" id="jumlah-tiket" name="jumlah_tiket" min="1" max="100" required>
+                    <button type="submit">Pesan</button>
+                </form>
+            </div>
+
+            <div>
+                <img src="https://images.app.goo.gl/tBoibtzYHUzm9PKL8" alt="Konser dewa 19">
+                <h3>Konser dewa 19</h3>
+                <p><strong>Tanggal:</strong> 20 Februari 2025</p>
+                <p><strong>Lokasi:</strong> Surabaya</p>
+                <p><strong>Harga Tiket:</strong> Rp 300.000</p>
+                <form action="pesan_tiket" method="POST">
+                    <label for="jumlah-tiket">Jumlah Tiket:</label>
+                    <input type="number" id="jumlah-tiket" name="jumlah_tiket" min="1" max="100" required>
+                    <button type="submit">Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="status-pemesanan">
+        <h2>Status Pemesanan</h2>
+        <form action="cek_status" method="POST">
+            <label for="kode-pemesanan">Kode Pemesanan:</label>
+            <input type="text" id="kode-pemesanan" name="kode_pemesanan" required>
+            <button type="submit">Cek Status</button>
+        </form>
+    </section>
+
+    <section id="panel-panitia">
+        <h2>Panel Panitia Acara</h2>
+        <form action="tambah_acara" method="POST">
+            <label for="nama-acara">Nama Acara:</label>
+            <input type="text" id="nama-acara" name="nama_acara" required>
+
+            <label for="tanggal-acara">Tanggal:</label>
+            <input type="date" id="tanggal-acara" name="tanggal_acara" required>
+
+            <label for="lokasi-acara">Lokasi:</label>
+            <input type="text" id="lokasi-acara" name="lokasi_acara" required>
+
+            <label for="harga-tiket">Harga Tiket:</label>
+            <input type="number" id="harga-tiket" name="harga_tiket" required>
+
+            <button type="submit">Tambah Acara</button>
+        </form>
+    </section>
+
+    <section id="transaksi-pemesanan">
+        <h2>Transaksi Pemesanan</h2>
+        <form action="konfirmasi_pembayaran" method="POST">
+            <label for="kode-pemesanan-transaksi">Kode Pemesanan:</label>
+            <input type="text" id="kode-pemesanan-transaksi" name="kode_pemesanan_transaksi" required>
+
+            <label for="status-pembayaran">Status Pembayaran:</label>
+            <select id="status-pembayaran" name="status_pembayaran" required>
+                <option value="lunas">Lunas</option>
+                <option value="belum_lunas">Belum Lunas</option>
+            </select>
+
+            <button type="submit">Konfirmasi Pembayaran</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; Tantra.co</p>
+    </footer>
+</body>
+</html>

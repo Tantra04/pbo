@@ -1,0 +1,93 @@
+/* style.css */
+
+body {
+    font-family: 'Arial', sans-serif; /* Ganti font */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #f0f0f0, #e0e0e0); /* Gradien background */
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    max-width: 960px; /* Batas lebar maksimum */
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow lebih tebal */
+    border-radius: 10px; /* Border radius */
+}
+
+h1 {
+    color: #007bff;
+    text-align: center; /* Teks tengah */
+    margin-bottom: 20px;
+}
+
+.event-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Background sedikit berbeda */
+    transition: transform 0.2s; /* Transisi hover */
+}
+
+.event-item:hover {
+    transform: translateY(-5px); /* Efek hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.event-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.event-item h2 {
+    color: #0056b3;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s; /* Transisi hover */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
