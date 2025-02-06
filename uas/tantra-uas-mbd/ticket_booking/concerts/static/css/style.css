@@ -1,7 +1,6 @@
-/* Font Import */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* Global Styles */
+
 body {
     font-family: 'Montserrat', sans-serif;
     background: linear-gradient(135deg, #121212, #1c1c1c, #292929);
@@ -14,7 +13,7 @@ body {
     transition: background-color 0.5s ease;
 }
 
-/* Navbar */
+
 nav {
     background: rgba(18, 18, 18, 0.9);
     padding: 1rem;
@@ -37,7 +36,7 @@ nav a:hover {
     color: #fd79a8;
 }
 
-/* Container */
+
 .container {
     flex: 1;
     padding: 2rem;
@@ -49,13 +48,13 @@ nav a:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Card */
+
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     justify-content: center;
-    align-items: start; /* Align items to the top of the container */
+    align-items: start; 
 }
 
 .card {
@@ -69,22 +68,22 @@ nav a:hover {
     border: 1px solid rgba(108, 92, 231, 0.5);
     overflow: hidden;
     display: flex;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center content horizontally */
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .card img {
     max-width: 100%;
     height: auto;
-    max-height: 200px; /* Adjust as needed */
-    object-fit: cover; /* Or contain, choose one */
+    max-height: 200px; 
+    object-fit: cover;
     display: block;
     margin-bottom: 1rem;
     border-radius: 8px;
 }
 
 .card-content {
-    flex-grow: 1; /* Allow content to take up available space */
+    flex-grow: 1; 
 }
 
 .card-title {
@@ -103,7 +102,7 @@ nav a:hover {
 }
 
 
-/* Responsif untuk kartu */
+
 @media (max-width: 768px) {
     .card {
         width: calc(50% - 1rem);
@@ -116,7 +115,7 @@ nav a:hover {
     }
 }
 
-/* Button */
+
 button, .btn {
     background: linear-gradient(90deg, #6c5ce7, #fd79a8);
     color: #ffffff;
@@ -151,7 +150,7 @@ button:hover, .btn:hover {
     box-shadow: 0 0 20px rgba(252, 92, 125, 0.7);
 }
 
-/* Animasi */
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -166,7 +165,7 @@ body.page-transition {
     animation: backgroundChange 0.5s forwards;
 }
 
-/* Motion Effects */
+
 @keyframes slideIn {
     from { transform: translateX(-100%); }
     to { transform: translateX(0); }
@@ -176,7 +175,7 @@ body.page-transition {
     animation: slideIn 1s ease-in-out;
 }
 
-/* Tabel */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -199,7 +198,7 @@ tr:nth-child(even) {
     background-color: #1c1c1c;
 }
 
-/* Link */
+
 a {
     color: #6c5ce7;
     transition: color 0.3s ease;
@@ -209,7 +208,7 @@ a:hover {
     color: #fd79a8;
 }
 
-/* Responsif */
+
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -233,7 +232,7 @@ a:hover {
     }
 }
 
-/* Concert Styles */
+
 .concert-container {
     display: flex;
     flex-wrap: nowrap;
@@ -260,20 +259,20 @@ a:hover {
 .concert img {
     max-width: 100%;
     height: auto;
-    max-height: 50px; /* Sesuaikan nilai ini */
-    object-fit: cover; /* Atau contain, pilih salah satu */
+    max-height: 50px; 
+    object-fit: cover; 
     display: block;
     margin: 0 auto;
     border-radius: 8px;
 }
 
 
-/* ✨ Hover efek */
+
 .concert:hover {
     transform: scale(1.05);
     box-shadow: 0 0 25px rgba(108, 92, 231, 0.6);
 }
-/* 🎟️ Tombol Pesan Tiket */
+
 .pesan-tiket {
     display: block;
     background: linear-gradient(90deg, #6c5ce7, #fd79a8);
@@ -291,7 +290,7 @@ a:hover {
     transform: scale(1.1);
 }
 
-/* 📱 Responsif */
+
 @media (max-width: 768px) {
     .concert-container {
         flex-direction: row;

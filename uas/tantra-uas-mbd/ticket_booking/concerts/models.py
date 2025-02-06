@@ -25,8 +25,8 @@ class Booking(models.Model):
         ('pending', 'Pending'),
         ('confirmed', 'Confirmed'),
         ('cancelled', 'Cancelled'),
-    ], default='pending')  # Status pemesanan
-    confirmation_code = models.CharField(max_length=20, blank=True, null=True)  # Kode konfirmasi unik
+    ], default='pending')  
+    confirmation_code = models.CharField(max_length=20, blank=True, null=True)  
 
     def __str__(self):
         return f"Booking for {self.concert.name} by {self.user.username}"

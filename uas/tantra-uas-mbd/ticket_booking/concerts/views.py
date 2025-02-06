@@ -40,7 +40,7 @@ def book_ticket(request, concerts_id):
                 concert.tickets_sold += tickets_requested
                 concert.save()
                 messages.success(request, "Tickets booked successfully!")
-                return redirect('booking_status')  # Redirect to booking status page
+                return redirect('booking_status') 
     else:
         form = BookingForm()
     return render(request, 'concerts/book_ticket.html', {'form': form, 'concert': concert})
@@ -55,7 +55,6 @@ def confirm_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     if booking.status == 'pending':
         booking.status = 'confirmed'
-        # Generate kode konfirmasi unik (contoh sederhana)
         booking.confirmation_code = 'CONF-' + str(booking.id) 
         booking.save()
         messages.success(request, f"Booking {booking.id} telah dikonfirmasi.")
