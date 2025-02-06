@@ -1,0 +1,31 @@
+<!-- filepath: /c:/Users/tantr/OneDrive/Documents/ticket_booking/ticket_booking/concerts/templates/concerts/search_results.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Hasil Pencarian untuk "{{ query }}"</h2>
+<div class="concert-container">
+    {% for concert in results %}
+    <div class="concert-card">
+        {% if concert.image %}
+        <img src="{{ concert.image.url }}" alt="{{ concert.name }}" class="concert-image">
+        {% else %}
+        <div class="no-image">Tidak ada gambar</div>
+        {% endif %}
+        <div class="concert-details">
+            <h3 class="concert-title">{{ concert.name }}</h3>
+            <p class="concert-info"><strong>Tanggal:</strong> {{ concert.date }}</p>
+            <p class="concert-info"><strong>Lokasi:</strong> {{ concert.location }}</p>
+            <p class="concert-price"><strong>Harga Tiket:</strong> Rp {{ concert.ticket_price }}</p>
+            <p class="concert-info"><strong>Tiket Tersedia:</strong> {{ concert.available_tickets }}</p>
+            {% if concert.available_tickets > 0 %}
+            <a href="{% url 'book_ticket' concert.id %}" class="btn">Pesan Tiket</a>
+            {% else %}
+            <span class="sold-out">Habis</span>
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+    <p>Tidak ada hasil yang ditemukan.</p>
+    {% endfor %}
+</div>
+{% endblock %}

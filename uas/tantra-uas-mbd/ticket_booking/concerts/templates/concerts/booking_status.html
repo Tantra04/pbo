@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Status Pemesanan Saya</h2>
+
+{% if bookings %}
+    <table>
+        <thead>
+            <tr>
+                <th>Konser</th>
+                <th>Tanggal</th>
+                <th>Jumlah Tiket</th>
+                <th>Status</th>
+                <th>Kode Konfirmasi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.concert.name }}</td>
+                    <td>{{ booking.concert.date }}</td>
+                    <td>{{ booking.tickets_booked }}</td>
+                    <td>{{ booking.status }}</td>
+                    <td>
+                        {% if booking.status == 'confirmed' %}
+                            {{ booking.confirmation_code }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Anda belum melakukan pemesanan.</p>
+{% endif %}
+
+<a href="{% url 'concerts_list' %}">Kembali ke Daftar Konser</a>
+{% endblock %}

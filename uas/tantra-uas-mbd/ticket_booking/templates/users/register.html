@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Registrasi</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Daftar</button>
+</form>
+<a href="{% url 'login' %}">Sudah punya akun? Login di sini</a>
+{% endblock %}
+

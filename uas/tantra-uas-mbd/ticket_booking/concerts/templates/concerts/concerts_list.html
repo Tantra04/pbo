@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="concert-container">
+    {% for concert in concerts %}
+    <div class="concert-card">
+        {% if concert.image %}
+        <img src="{{ concert.image.url }}" alt="{{ concert.name }}" class="concert-image":width="250" height="250">
+        {% else %}
+        <div class="no-image">Tidak ada gambar</div>
+        {% endif %}
+        <div class="concert-details">
+            <h3 class="concert-title">{{ concert.name }}</h3>
+            <p class="concert-info"><strong>Tanggal:</strong> {{ concert.date }}</p>
+            <p class="concert-info"><strong>Lokasi:</strong> {{ concert.location }}</p>
+            <p class="concert-price">Rp{{ concert.ticket_price|floatformat:"0" }}</p>
+            <p class="concert-info"><strong>Tiket Tersedia:</strong> {{ concert.available_tickets }}</p>
+            {% if concert.available_tickets > 0 %}
+            <a href="{% url 'book_ticket' concert.id %}" class="btn">Pesan Tiket</a>
+            {% else %}
+            <span class="sold-out">Habis</span>
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+    <p>Tidak ada konser tersedia.</p>
+    {% endfor %}
+</div>
+{% endblock %}

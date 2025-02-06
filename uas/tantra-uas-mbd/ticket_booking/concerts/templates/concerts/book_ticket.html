@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Pesan Tiket: {{ concert.name }}</h2>  <p><strong>Tanggal:</strong> {{ concert.date }}</p>  <p><strong>Lokasi:</strong> {{ concert.location }}</p>  <p><strong>Harga Tiket:</strong> Rp {{ concert.ticket_price }}</p>  <p><strong>Tiket Tersedia:</strong> {{ concert.available_tickets }}</p>  {% if concert.available_tickets > 0 %}  <form method="post">
+        {% csrf_token %}
+        <label for="tickets">Jumlah Tiket:</label>
+        {{ form.tickets_booked }}
+        <button type="submit">Pesan</button>
+    </form>
+{% else %}
+    <p><strong>Maaf, tiket sudah habis.</strong></p>
+{% endif %}
+
+<a href="{% url 'concerts_list' %}">Kembali ke Daftar Konser</a>
+{% endblock %}

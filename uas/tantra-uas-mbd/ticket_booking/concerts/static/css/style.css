@@ -1,0 +1,302 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #121212, #1c1c1c, #292929);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.5s ease;
+}
+
+/* Navbar */
+nav {
+    background: rgba(18, 18, 18, 0.9);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #6c5ce7;
+}
+
+nav a {
+    color: #6c5ce7;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #fd79a8;
+}
+
+/* Container */
+.container {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    animation: fadeIn 1s ease-in-out;
+    background: rgba(30, 30, 30, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Card */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: start; /* Align items to the top of the container */
+}
+
+.card {
+    background: rgba(48, 48, 48, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    min-width: 220px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(108, 92, 231, 0.5);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px; /* Adjust as needed */
+    object-fit: cover; /* Or contain, choose one */
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.card-content {
+    flex-grow: 1; /* Allow content to take up available space */
+}
+
+.card-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 15px rgba(108, 92, 231, 0.6);
+}
+
+
+/* Responsif untuk kartu */
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+}
+
+/* Button */
+button, .btn {
+    background: linear-gradient(90deg, #6c5ce7, #fd79a8);
+    color: #ffffff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before, .btn::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(90deg, #6c5ce7, #fd79a8);
+    border-radius: 8px;
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover, .btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(252, 92, 125, 0.7);
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes backgroundChange {
+    0% { background: linear-gradient(135deg, #121212, #1c1c1c, #292929); }
+    100% { background: linear-gradient(135deg, #121212, #1c1c1c, #292929); }
+}
+
+body.page-transition {
+    animation: backgroundChange 0.5s forwards;
+}
+
+/* Motion Effects */
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.motion-element {
+    animation: slideIn 1s ease-in-out;
+}
+
+/* Tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(108, 92, 231, 0.3);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #6c5ce7;
+}
+
+th {
+    background: #6c5ce7;
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #1c1c1c;
+}
+
+/* Link */
+a {
+    color: #6c5ce7;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #fd79a8;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav a {
+        margin: 0.5rem 0;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+/* Concert Styles */
+.concert-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 20px;
+    white-space: nowrap;
+}
+
+.concert {
+    background: rgba(48, 48, 48, 0.8);
+    border: 2px solid rgba(108, 92, 231, 0.5);
+    border-radius: 10px;
+    padding: 1rem;
+    width: 250px; /* Consistent width */
+    box-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+    transition: all 0.3s ease;
+    text-align: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.concert img {
+    max-width: 100%;
+    height: auto;
+    max-height: 50px; /* Sesuaikan nilai ini */
+    object-fit: cover; /* Atau contain, pilih salah satu */
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+
+/* ✨ Hover efek */
+.concert:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(108, 92, 231, 0.6);
+}
+/* 🎟️ Tombol Pesan Tiket */
+.pesan-tiket {
+    display: block;
+    background: linear-gradient(90deg, #6c5ce7, #fd79a8);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.pesan-tiket:hover {
+    transform: scale(1.1);
+}
+
+/* 📱 Responsif */
+@media (max-width: 768px) {
+    .concert-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pemesanan Tiket Konser</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        {% if user.is_authenticated %}
+            <div style="display: flex; align-items: center;">
+                <span>Halo, {{ user.username }}</span>
+                <form method="get" action="{% url 'search' %}" class="search-form" style="margin-left: 20px;">
+                    <input type="text" name="q" placeholder="Cari konser...">
+                    <button type="submit">Cari</button>
+                </form>
+            </div>
+            <a href="{% url 'concerts_list' %}">Daftar Konser</a>
+            <a href="{% url 'booking_status' %}">Status Pemesanan</a>
+            <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a> |
+            <a href="{% url 'register' %}">Daftar</a>
+        {% endif %}
+    </nav>
+    <hr>
+    <div class="container fade-in">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>
+        <p>&copy; 2025 TanTicket.(pemesanan tiket konser)</p>
+    </footer>
+</body>
+</html>
